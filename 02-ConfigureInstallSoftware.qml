@@ -11,10 +11,9 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
-//import QtGraphicalEffects 1.15
+
 
 import org.kde.plasma.welcome 1.0
-import org.kde.welcome 1.0
 
 
 GenericPage {
@@ -37,7 +36,10 @@ GenericPage {
             columns: 2
 
             readonly property int cellWidth: Math.round((layout.width - columnSpacing * (columns - 1)) / columns)
-            readonly property int cellHeight: Math.max(pacman_btn.implicitHeight, apps_btn.implicitHeight)
+            readonly property int cellHeight: Math.max(pacman_btn.implicitHeight,
+                                                       apps_btn.implicitHeight,
+                                                       codecs_btn.implicitHeight,
+                                                       timeshift_btn.implicitHeight)
 
             columnSpacing: Kirigami.Units.smallSpacing
             rowSpacing: Kirigami.Units.smallSpacing
@@ -47,18 +49,10 @@ GenericPage {
             QQC2.Button {
                 id: pacman_btn
 
-                implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                                        implicitContentWidth + leftPadding + rightPadding)
-                implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                                        implicitContentHeight + topPadding + bottomPadding)
-
                 Layout.preferredWidth: grid.cellWidth
                 Layout.preferredHeight: grid.cellHeight
 
-                leftPadding: Kirigami.Units.largeSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
+                padding: Kirigami.Units.largeSpacing
 
                 onClicked: pageStack.layers.push(package_managers)
 
@@ -80,7 +74,7 @@ GenericPage {
                         Kirigami.Heading {
                             Layout.fillWidth: true
                             level: 4
-                            text: "Package Managers"
+                            text: i18n("Package Managers")
                             verticalAlignment: Text.AlignVCenter
                             maximumLineCount: 2
                             elide: Text.ElideRight
@@ -92,8 +86,7 @@ GenericPage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        visible: true
-                        text: "Choose package manager(s) for your system"
+                        text: i18n("Choose package manager(s) for your system")
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         opacity: 0.6
@@ -105,18 +98,10 @@ GenericPage {
             QQC2.Button {
                 id: apps_btn
 
-                implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                                        implicitContentWidth + leftPadding + rightPadding)
-                implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                                        implicitContentHeight + topPadding + bottomPadding)
-
                 Layout.preferredWidth: grid.cellWidth
                 Layout.preferredHeight: grid.cellHeight
 
-                leftPadding: Kirigami.Units.largeSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
+                padding: Kirigami.Units.largeSpacing
 
                 onClicked: pageStack.layers.push(applications)
 
@@ -138,7 +123,7 @@ GenericPage {
                         Kirigami.Heading {
                             Layout.fillWidth: true
                             level: 4
-                            text: "Applications"
+                            text: i18n("Applications")
                             verticalAlignment: Text.AlignVCenter
                             maximumLineCount: 2
                             elide: Text.ElideRight
@@ -150,8 +135,7 @@ GenericPage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        visible: true
-                        text: "Choose applications to install"
+                        text: i18n("Choose applications to install")
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         opacity: 0.6
@@ -163,18 +147,10 @@ GenericPage {
             QQC2.Button {
                 id: codecs_btn
 
-                implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                                        implicitContentWidth + leftPadding + rightPadding)
-                implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                                        implicitContentHeight + topPadding + bottomPadding)
-
                 Layout.preferredWidth: grid.cellWidth
                 Layout.preferredHeight: grid.cellHeight
 
-                leftPadding: Kirigami.Units.largeSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
+                padding: Kirigami.Units.largeSpacing
 
                 onClicked: pageStack.layers.push(codecs)
 
@@ -196,7 +172,7 @@ GenericPage {
                         Kirigami.Heading {
                             Layout.fillWidth: true
                             level: 4
-                            text: "Restricted Codecs"
+                            text: i18n("Restricted Codecs")
                             verticalAlignment: Text.AlignVCenter
                             maximumLineCount: 2
                             elide: Text.ElideRight
@@ -208,8 +184,7 @@ GenericPage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        visible: true
-                        text: "Choose whether to install codecs and fonts"
+                        text: i18n("Choose whether to install codecs and fonts")
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         opacity: 0.6
@@ -221,18 +196,10 @@ GenericPage {
             QQC2.Button {
                 id: timeshift_btn
 
-                implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
-                                        implicitContentWidth + leftPadding + rightPadding)
-                implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset,
-                                        implicitContentHeight + topPadding + bottomPadding)
-
                 Layout.preferredWidth: grid.cellWidth
                 Layout.preferredHeight: grid.cellHeight
 
-                leftPadding: Kirigami.Units.largeSpacing
-                rightPadding: Kirigami.Units.largeSpacing
-                topPadding: Kirigami.Units.largeSpacing
-                bottomPadding: Kirigami.Units.largeSpacing
+                padding: Kirigami.Units.largeSpacing
 
                 onClicked: pageStack.layers.push(timeshift)
 
@@ -254,7 +221,7 @@ GenericPage {
                         Kirigami.Heading {
                             Layout.fillWidth: true
                             level: 4
-                            text: "Timeshift"
+                            text: i18n("Timeshift")
                             verticalAlignment: Text.AlignVCenter
                             maximumLineCount: 2
                             elide: Text.ElideRight
@@ -266,8 +233,7 @@ GenericPage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        visible: true
-                        text: "Choose whether to install Timeshift to create snapshots of your system"
+                        text: i18n("Choose whether to install Timeshift to create snapshots of your system")
                         elide: Text.ElideRight
                         wrapMode: Text.Wrap
                         opacity: 0.6
@@ -311,11 +277,10 @@ GenericPage {
                                 spacing: Kirigami.Units.smallSpacing
                                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
-                                // Title
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
                                     level: 4
-                                    text: "Flatpak"
+                                    text: i18n("Flatpak")
                                     verticalAlignment: Text.AlignVCenter
                                     maximumLineCount: 2
                                     elide: Text.ElideRight
@@ -325,8 +290,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    visible: true
-                                    text: "Manage and configure flatpak and flathub repository"
+                                    text: i18n("Manage and configure flatpak and flathub repository")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -359,11 +323,10 @@ GenericPage {
                                 spacing: Kirigami.Units.smallSpacing
                                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
-                                // Title
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
                                     level: 4
-                                    text: "AppImage"
+                                    text: i18n("AppImage")
                                     verticalAlignment: Text.AlignVCenter
                                     maximumLineCount: 2
                                     elide: Text.ElideRight
@@ -373,7 +336,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    text: "Install necessary dependencies to run AppImages"
+                                    text: i18n("Install necessary dependencies to run AppImages")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -434,11 +397,10 @@ GenericPage {
                                 spacing: Kirigami.Units.smallSpacing
                                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
-                                // Title
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
                                     level: 4
-                                    text: "Core Applications"
+                                    text: i18n("Core Applications")
                                     verticalAlignment: Text.AlignVCenter
                                     maximumLineCount: 2
                                     elide: Text.ElideRight
@@ -448,8 +410,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    visible: true
-                                    text: "Essential KDE applications like a text editor and a document viewer"
+                                    text: i18n("Essential KDE applications like a text editor and a document viewer")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -482,11 +443,10 @@ GenericPage {
                                 spacing: Kirigami.Units.smallSpacing
                                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
-                                // Title
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
                                     level: 4
-                                    text: "Office"
+                                    text: i18n("Office")
                                     verticalAlignment: Text.AlignVCenter
                                     maximumLineCount: 2
                                     elide: Text.ElideRight
@@ -496,7 +456,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    text: "The LibreOffice Suite"
+                                    text: i18n("The LibreOffice Suite")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -529,11 +489,10 @@ GenericPage {
                                 spacing: Kirigami.Units.smallSpacing
                                 Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
-                                // Title
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
                                     level: 4
-                                    text: "Common Utilities"
+                                    text: i18n("Common Utilities")
                                     verticalAlignment: Text.AlignVCenter
                                     maximumLineCount: 2
                                     elide: Text.ElideRight
@@ -543,7 +502,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    text: "Useful utilities like Bottles or Sound Recorder"
+                                    text: i18n("Useful utilities like Bottles or Sound Recorder")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -605,7 +564,7 @@ GenericPage {
 
             QQC2.Button {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "Install Timeshift"
+                text: i18n("Install Timeshift")
             }
 
 
