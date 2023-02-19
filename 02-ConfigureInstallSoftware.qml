@@ -54,8 +54,10 @@ GenericPage {
 
                 padding: Kirigami.Units.largeSpacing
 
-                onClicked: pageStack.layers.push(package_managers)
-
+                onClicked: {
+                    pageStack.layers.push(package_managers)
+                    prevButton.enabled = false
+                }
                 contentItem: ColumnLayout {
                     spacing: 0
 
@@ -103,7 +105,10 @@ GenericPage {
 
                 padding: Kirigami.Units.largeSpacing
 
-                onClicked: pageStack.layers.push(applications)
+                onClicked: {
+                    pageStack.layers.push(applications)
+                    prevButton.enabled = false
+                }
 
                 contentItem: ColumnLayout {
                     spacing: 0
@@ -152,7 +157,10 @@ GenericPage {
 
                 padding: Kirigami.Units.largeSpacing
 
-                onClicked: pageStack.layers.push(codecs)
+                onClicked: {
+                    pageStack.layers.push(codecs)
+                    prevButton.enabled = false
+                }
 
                 contentItem: ColumnLayout {
                     spacing: 0
@@ -201,7 +209,10 @@ GenericPage {
 
                 padding: Kirigami.Units.largeSpacing
 
-                onClicked: pageStack.layers.push(timeshift)
+                onClicked: {
+                    pageStack.layers.push(timeshift)
+                    prevButton.enabled = false
+                }
 
                 contentItem: ColumnLayout {
                     spacing: 0
@@ -361,7 +372,10 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: pageStack.layers.pop();
+                onClicked: {
+                    pageStack.layers.pop();
+                    prevButton.enabled = true
+                }
             }
         }
     }
@@ -527,7 +541,10 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: pageStack.layers.pop();
+                onClicked: {
+                    pageStack.layers.pop();
+                    prevButton.enabled = true
+                }
             }
         }
     }
@@ -548,7 +565,10 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: pageStack.layers.pop();
+                onClicked: {
+                    pageStack.layers.pop();
+                    prevButton.enabled = true
+                }
             }
         }
     }
@@ -575,7 +595,10 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: pageStack.layers.pop();
+                onClicked: {
+                    pageStack.layers.pop();
+                    prevButton.enabled = true
+                }
             }
         }
     }
