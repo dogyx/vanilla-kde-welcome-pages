@@ -12,13 +12,25 @@ import QtQuick.Controls 2.15 as QQC2
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.15 as Kirigami
 
-
+import org.kde.welcome 1.0
 import org.kde.plasma.welcome 1.0
 
 
 GenericPage {
     heading: i18nc("@info:window", "Configure Package Managers & Install Software")
     description: xi18nc("@info:usagetip", "Choose package managers to use for your system and which applications to install. <nl/>Leave everything as is and continue for default values.")
+
+    property int _num: 0
+    property bool _timeshift: false
+    property bool _codecs: false
+
+    onIsCurrentPageChanged: if (pageStack.currentIndex === 8) {
+                                _num += 1
+                                if (_num === 2)
+                                {   // This is a placeholder. TODO: Replace with a bash script that actually installs the packages
+                                    Controller.runCommand("notify-send \"System\" \"Installing packages...\"", "Send-Notification")
+                                }
+                            }
 
     ColumnLayout {
         id: layout
@@ -558,6 +570,18 @@ GenericPage {
             heading: i18nc("@info:window", "Install Restricted Codecs")
             description: xi18nc("@info:usagetip", "Install drivers, fonts and other essentials from the ubuntu-restricted-extras and ubuntu-restricted-addons repositories.")
 
+            RowLayout {
+                anchors.horizontalCenter: parent.horizontalCenter
+                spacing: 0
+                QQC2.CheckBox {
+                    checked: _codecs
+                    onClicked: _codecs = !_codecs
+                }
+                QQC2.Label {
+                    text: "Enable Restricted Codecs"
+                }
+            }
+
             QQC2.Button {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: Kirigami.Units.gridUnit * 3
@@ -582,11 +606,17 @@ GenericPage {
             heading: i18nc("@info:window", "Install Timeshift for system snapshots")
             description: xi18nc("@info:usagetip", "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system.")
 
-            QQC2.Button {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: i18n("Install Timeshift")
-            }
-
+                RowLayout {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: 0
+                    QQC2.CheckBox {
+                        checked: _timeshift
+                        onClicked: _timeshift = !_timeshift
+                    }
+                    QQC2.Label {
+                        text: "Enable Timeshift"
+                    }
+                }
 
             QQC2.Button {
                 anchors.bottom: parent.bottom
