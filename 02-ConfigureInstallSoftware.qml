@@ -539,7 +539,7 @@ GenericPage {
             globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
             heading: i18nc("@info:window", "Install Restricted Codecs")
-            description: xi18nc("@info:usagetip", "Choose whether to install codecs and fonts")
+            description: xi18nc("@info:usagetip", "Install drivers, fonts and other essentials from the ubuntu-restricted-extras and ubuntu-restricted-addons repositories.")
 
             QQC2.Button {
                 anchors.bottom: parent.bottom
@@ -560,7 +560,7 @@ GenericPage {
             globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
             heading: i18nc("@info:window", "Install Timeshift for system snapshots")
-            description: xi18nc("@info:usagetip", "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in MacOS. TimeShift protects your system by taking incremental snapshots of the file system at regualar intervals. These snapshots can be restored at a later date to undo all changes to the system.")
+            description: xi18nc("@info:usagetip", "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system.")
 
             QQC2.Button {
                 anchors.horizontalCenter: parent.horizontalCenter
