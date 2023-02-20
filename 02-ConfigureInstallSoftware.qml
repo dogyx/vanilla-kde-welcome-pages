@@ -21,8 +21,16 @@ GenericPage {
     description: xi18nc("@info:usagetip", "Choose package managers to use for your system and which applications to install. <nl/>Leave everything as is and continue for default values.")
 
     property int _num: 0
+
     property bool _timeshift: false
     property bool _codecs: false
+
+    property bool _flatpak: true
+    property bool _appimage: true
+
+    property bool _core_apps: true
+    property bool _office: false
+    property bool _utilities: false
 
     onIsCurrentPageChanged: if (pageStack.currentIndex === 8) {
                                 _num += 1
@@ -284,8 +292,7 @@ GenericPage {
 
                 Layout.fillWidth: true
 
-                QQC2.Frame {
-                    id: core_apps
+                QQC2.Container {
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -295,10 +302,15 @@ GenericPage {
                     contentItem: RowLayout {
                         spacing: 0
                         RowLayout {
-                            spacing: Kirigami.Units.largeSpacing
+                            spacing: Kirigami.Units.smallSpacing
+
+                            QQC2.CheckBox {
+                                checked: _flatpak
+                                onClicked: _flatpak = !_flatpak
+                            }
+
                             ColumnLayout {
-                                spacing: Kirigami.Units.smallSpacing
-                                Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
+                                spacing: 0
 
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
@@ -321,17 +333,12 @@ GenericPage {
                                 }
                             }
 
-                            QQC2.CheckBox {
-
-                            }
-
                         }
 
                     }
                 }
 
-                QQC2.Frame {
-                    id: office_apps
+                QQC2.Container {
 
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -341,10 +348,15 @@ GenericPage {
                     contentItem: RowLayout {
                         spacing: 0
                         RowLayout {
-                            spacing: Kirigami.Units.largeSpacing
+                            spacing: Kirigami.Units.smallSpacing
+
+                            QQC2.CheckBox {
+                                checked: _appimage
+                                onClicked: _appimage = !_appimage
+                            }
+
                             ColumnLayout {
-                                spacing: Kirigami.Units.smallSpacing
-                                Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
+                                spacing: 0
 
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
@@ -365,10 +377,6 @@ GenericPage {
                                     opacity: 0.6
                                     verticalAlignment: Text.AlignTop
                                 }
-                            }
-
-                            QQC2.CheckBox {
-
                             }
 
                         }
@@ -407,9 +415,7 @@ GenericPage {
 
                 Layout.fillWidth: true
 
-                QQC2.Frame {
-                    id: core_apps
-
+                QQC2.Container {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
@@ -418,10 +424,15 @@ GenericPage {
                     contentItem: RowLayout {
                         spacing: 0
                         RowLayout {
-                            spacing: Kirigami.Units.largeSpacing
+                            spacing: Kirigami.Units.smallSpacing
+
+                            QQC2.CheckBox {
+                                checked: _core_apps
+                                onClicked: _core_apps = !_core_apps
+                            }
+
                             ColumnLayout {
-                                spacing: Kirigami.Units.smallSpacing
-                                Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
+                                spacing: 0
 
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
@@ -436,7 +447,7 @@ GenericPage {
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    text: i18n("Essential KDE applications like a text editor and a document viewer")
+                                    text: i18n("Essential applications like a text editor and a document viewer")
                                     elide: Text.ElideRight
                                     wrapMode: Text.Wrap
                                     opacity: 0.6
@@ -444,18 +455,12 @@ GenericPage {
                                 }
                             }
 
-                            QQC2.CheckBox {
-
-                            }
-
                         }
 
                     }
                 }
 
-                QQC2.Frame {
-                    id: office_apps
-
+                QQC2.Container {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
@@ -464,10 +469,15 @@ GenericPage {
                     contentItem: RowLayout {
                         spacing: 0
                         RowLayout {
-                            spacing: Kirigami.Units.largeSpacing
+                            spacing: Kirigami.Units.smallSpacing
+
+                            QQC2.CheckBox {
+                                checked: _office
+                                onClicked: _office = !_office
+                            }
+
                             ColumnLayout {
-                                spacing: Kirigami.Units.smallSpacing
-                                Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
+                                spacing: 0
 
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
@@ -490,18 +500,12 @@ GenericPage {
                                 }
                             }
 
-                            QQC2.CheckBox {
-
-                            }
-
                         }
 
                     }
                 }
 
-                QQC2.Frame {
-                    id: utilites_apps
-
+                QQC2.Container {
                     Layout.fillWidth: true
                     Layout.fillHeight: true
 
@@ -510,10 +514,15 @@ GenericPage {
                     contentItem: RowLayout {
                         spacing: 0
                         RowLayout {
-                            spacing: Kirigami.Units.largeSpacing
+                            spacing: Kirigami.Units.smallSpacing
+
+                            QQC2.CheckBox {
+                                checked: _utilities
+                                onClicked: _utilities = !_utilities
+                            }
+
                             ColumnLayout {
                                 spacing: Kirigami.Units.smallSpacing
-                                Layout.minimumHeight: Kirigami.Units.gridUnit * 2 + spacing
 
                                 Kirigami.Heading {
                                     Layout.fillWidth: true
@@ -534,10 +543,6 @@ GenericPage {
                                     opacity: 0.6
                                     verticalAlignment: Text.AlignTop
                                 }
-                            }
-
-                            QQC2.CheckBox {
-
                             }
 
                         }
