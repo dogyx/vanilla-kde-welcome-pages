@@ -14,3 +14,5 @@ Custom pages for [plasma-welcome](https://invent.kde.org/plasma/plasma-welcome/)
 
 ![](screenshots/plasma-welcome-custom5.png)
 
+![](screenshots/plasma-welcome-custom6.png)
+
