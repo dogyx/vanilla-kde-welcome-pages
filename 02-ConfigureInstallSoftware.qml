@@ -32,6 +32,9 @@ GenericPage {
     property bool _office: false
     property bool _utilities: false
 
+    property var apps_core_list: ["Filelight", "Kontact", "Kamoso", "Okular", "Gwenview", "KCharSelect", "Weather", "Kate"]
+    property var apps_util_list: ["Heroic Games Launcher", "Vorta", "Elisa", "Audacity"]
+
     onIsCurrentPageChanged: if (pageStack.currentIndex === 8) {
                                 _num += 1
                                 if (_num === 2)
@@ -300,41 +303,36 @@ GenericPage {
                     padding: Kirigami.Units.largeSpacing
 
                     contentItem: RowLayout {
-                        spacing: 0
-                        RowLayout {
-                            spacing: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.smallSpacing
 
-                            QQC2.CheckBox {
-                                checked: _flatpak
-                                onClicked: _flatpak = !_flatpak
-                            }
-
-                            ColumnLayout {
-                                spacing: 0
-
-                                Kirigami.Heading {
-                                    Layout.fillWidth: true
-                                    level: 4
-                                    text: i18n("Flatpak")
-                                    verticalAlignment: Text.AlignVCenter
-                                    maximumLineCount: 2
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    text: i18n("Manage and configure flatpak and flathub repository")
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    opacity: 0.6
-                                    verticalAlignment: Text.AlignTop
-                                }
-                            }
-
+                        QQC2.CheckBox {
+                            checked: _flatpak
+                            onClicked: _flatpak = !_flatpak
                         }
 
+                        ColumnLayout {
+                            spacing: 0
+
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 4
+                                text: i18n("Flatpak")
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                            }
+
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: i18n("Manage and configure flatpak and flathub repository")
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                                opacity: 0.6
+                                verticalAlignment: Text.AlignTop
+                            }
+                        }
                     }
                 }
 
@@ -346,41 +344,36 @@ GenericPage {
                     padding: Kirigami.Units.largeSpacing
 
                     contentItem: RowLayout {
-                        spacing: 0
-                        RowLayout {
-                            spacing: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.smallSpacing
 
-                            QQC2.CheckBox {
-                                checked: _appimage
-                                onClicked: _appimage = !_appimage
-                            }
-
-                            ColumnLayout {
-                                spacing: 0
-
-                                Kirigami.Heading {
-                                    Layout.fillWidth: true
-                                    level: 4
-                                    text: i18n("AppImage")
-                                    verticalAlignment: Text.AlignVCenter
-                                    maximumLineCount: 2
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    text: i18n("Install necessary dependencies to run AppImages")
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    opacity: 0.6
-                                    verticalAlignment: Text.AlignTop
-                                }
-                            }
-
+                        QQC2.CheckBox {
+                            checked: _appimage
+                            onClicked: _appimage = !_appimage
                         }
 
+                        ColumnLayout {
+                            spacing: 0
+
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 4
+                                text: i18n("AppImage")
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                            }
+
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: i18n("Install necessary dependencies to run AppImages")
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                                opacity: 0.6
+                                verticalAlignment: Text.AlignTop
+                            }
+                        }
                     }
                 }
             }
@@ -422,41 +415,40 @@ GenericPage {
                     padding: Kirigami.Units.largeSpacing
 
                     contentItem: RowLayout {
-                        spacing: 0
-                        RowLayout {
-                            spacing: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.smallSpacing
 
-                            QQC2.CheckBox {
-                                checked: _core_apps
-                                onClicked: _core_apps = !_core_apps
-                            }
-
-                            ColumnLayout {
-                                spacing: 0
-
-                                Kirigami.Heading {
-                                    Layout.fillWidth: true
-                                    level: 4
-                                    text: i18n("Core Applications")
-                                    verticalAlignment: Text.AlignVCenter
-                                    maximumLineCount: 2
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    text: i18n("Essential applications like a text editor and a document viewer")
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    opacity: 0.6
-                                    verticalAlignment: Text.AlignTop
-                                }
-                            }
-
+                        QQC2.CheckBox {
+                            checked: _core_apps
+                            onClicked: _core_apps = !_core_apps
                         }
 
+                        ColumnLayout {
+                            spacing: 0
+
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 4
+                                text: i18n("Core Applications")
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                            }
+
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: i18n("Essential applications like a text editor and a document viewer")
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                                opacity: 0.6
+                                verticalAlignment: Text.AlignTop
+                            }
+                        }
+                        QQC2.Button {
+                            text: i18n("Edit")
+                            onClicked: core_apps_overlay.open()
+                        }
                     }
                 }
 
@@ -467,41 +459,36 @@ GenericPage {
                     padding: Kirigami.Units.largeSpacing
 
                     contentItem: RowLayout {
-                        spacing: 0
-                        RowLayout {
-                            spacing: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.smallSpacing
 
-                            QQC2.CheckBox {
-                                checked: _office
-                                onClicked: _office = !_office
-                            }
-
-                            ColumnLayout {
-                                spacing: 0
-
-                                Kirigami.Heading {
-                                    Layout.fillWidth: true
-                                    level: 4
-                                    text: i18n("Office")
-                                    verticalAlignment: Text.AlignVCenter
-                                    maximumLineCount: 2
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    text: i18n("The LibreOffice Suite")
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    opacity: 0.6
-                                    verticalAlignment: Text.AlignTop
-                                }
-                            }
-
+                        QQC2.CheckBox {
+                            checked: _office
+                            onClicked: _office = !_office
                         }
 
+                        ColumnLayout {
+                            spacing: 0
+
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 4
+                                text: i18n("Office")
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                            }
+
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: i18n("The LibreOffice Suite")
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                                opacity: 0.6
+                                verticalAlignment: Text.AlignTop
+                            }
+                        }
                     }
                 }
 
@@ -512,41 +499,41 @@ GenericPage {
                     padding: Kirigami.Units.largeSpacing
 
                     contentItem: RowLayout {
-                        spacing: 0
-                        RowLayout {
-                            spacing: Kirigami.Units.smallSpacing
+                        spacing: Kirigami.Units.smallSpacing
 
-                            QQC2.CheckBox {
-                                checked: _utilities
-                                onClicked: _utilities = !_utilities
-                            }
-
-                            ColumnLayout {
-                                spacing: Kirigami.Units.smallSpacing
-
-                                Kirigami.Heading {
-                                    Layout.fillWidth: true
-                                    level: 4
-                                    text: i18n("Common Utilities")
-                                    verticalAlignment: Text.AlignVCenter
-                                    maximumLineCount: 2
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                }
-
-                                QQC2.Label {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    text: i18n("Useful utilities like Bottles or Sound Recorder")
-                                    elide: Text.ElideRight
-                                    wrapMode: Text.Wrap
-                                    opacity: 0.6
-                                    verticalAlignment: Text.AlignTop
-                                }
-                            }
-
+                        QQC2.CheckBox {
+                            checked: _utilities
+                            onClicked: _utilities = !_utilities
                         }
 
+                        ColumnLayout {
+                            spacing: Kirigami.Units.smallSpacing
+
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 4
+                                text: i18n("Common Utilities")
+                                verticalAlignment: Text.AlignVCenter
+                                maximumLineCount: 2
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                            }
+
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.fillHeight: true
+                                text: i18n("Useful utilities like Bottles or Sound Recorder")
+                                elide: Text.ElideRight
+                                wrapMode: Text.Wrap
+                                opacity: 0.6
+                                verticalAlignment: Text.AlignTop
+                            }
+                        }
+                        QQC2.Button {
+                            text: i18n("Edit")
+                            onClicked: utilities_overlay.open()
+                            enabled: _utilities
+                        }
                     }
                 }
             }
@@ -558,10 +545,7 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: {
-                    pageStack.layers.pop();
-                    prevButton.enabled = true
-                }
+                onClicked: go_back()
             }
         }
     }
@@ -594,10 +578,7 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: {
-                    pageStack.layers.pop();
-                    prevButton.enabled = true
-                }
+                onClicked: go_back()
             }
         }
     }
@@ -630,10 +611,43 @@ GenericPage {
 
                 icon.name: "go-previous-view"
                 text: i18nc("@action:button", "Go Back")
-                onClicked: {
-                    pageStack.layers.pop();
-                    prevButton.enabled = true
-                }
+                onClicked: go_back()
+            }
+        }
+    }
+
+    function go_back() {
+        pageStack.layers.pop();
+        prevButton.enabled = true
+    }
+
+    //
+    // Overlays
+    //
+
+    Kirigami.OverlaySheet {
+        id: core_apps_overlay
+        header: Kirigami.Heading {
+            text: i18nc("@title:window", "Select Applications")
+        }
+        ListView {
+            model: apps_core_list.length
+            delegate: Kirigami.CheckableListItem {
+                checked: true
+                label: i18n(apps_core_list[index])
+            }
+        }
+    }
+    Kirigami.OverlaySheet {
+        id: utilities_overlay
+        header: Kirigami.Heading {
+            text: i18nc("@title:window", "Select Applications")
+        }
+        ListView {
+            model: apps_util_list.length
+            delegate: Kirigami.CheckableListItem {
+                checked: true
+                label: i18n(apps_util_list[index])
             }
         }
     }
