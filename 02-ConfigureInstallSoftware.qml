@@ -164,20 +164,52 @@ GenericPage {
         }
     }
 
-    PageCheckBoxLabel {
+    Component {
         id: timeshift
-        item_checked: false
-        item_label: "Enable Timeshift"
-        heading_title: "Install Timeshift for system snapshots"
-        page_desc: "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system."
+        GenericPage {
+
+            globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+
+            heading: "Install Timeshift for system snapshots"
+            description: "Timeshift for Linux is an application that provides functionality similar to the System Restore feature in Windows and the Time Machine tool in Mac OS. Timeshift protects your system by taking incremental snapshots of the file system at regular intervals. These snapshots can be restored at a later date to undo all changes to the system."
+
+                RowLayout {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: 0
+                    QQC2.CheckBox {
+                        checked: false
+                        //onClicked:
+                    }
+                    QQC2.Label {
+                        text: "Enable Timeshift"
+                    }
+                }
+            BackButton { }
+        }
     }
 
-    PageCheckBoxLabel {
+    Component {
         id: codecs
-        item_checked: false
-        item_label: "Enable Restricted Codecs"
-        heading_title: "Install Restricted Codecs"
-        page_desc: "Install drivers, fonts and other essentials from the ubuntu-restricted-extras and ubuntu-restricted-addons repositories."
+        GenericPage {
+
+            globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+
+            heading: "Install Restricted Codecs"
+            description: "Install drivers, fonts and other essentials from the ubuntu-restricted-extras and ubuntu-restricted-addons repositories."
+
+                RowLayout {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    spacing: 0
+                    QQC2.CheckBox {
+                        checked: false
+                        //onClicked:
+                    }
+                    QQC2.Label {
+                        text: "Enable Restricted Codecs"
+                    }
+                }
+            BackButton { }
+        }
     }
 
     AppsListOverlay {
@@ -221,33 +253,6 @@ GenericPage {
                 label: lv_item_label[index]
             }
         }
-    }
-
-    component PageCheckBoxLabel: GenericPage {
-
-        property bool item_checked
-        property string item_label
-        property string heading_title
-        property string page_desc
-
-        globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
-
-        heading: heading_title
-        description: page_desc
-
-            RowLayout {
-                id: _row
-                anchors.horizontalCenter: parent.horizontalCenter
-                spacing: 0
-                QQC2.CheckBox {
-                    checked: item_checked
-                    onClicked: item_checked = !item_checked
-                }
-                QQC2.Label {
-                    text: item_label
-                }
-            }
-        BackButton { }
     }
 
     component CustomListItem: QQC2.Container {
