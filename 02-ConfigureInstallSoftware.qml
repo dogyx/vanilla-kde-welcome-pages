@@ -168,11 +168,6 @@ GenericPage {
         id: timeshift
         GenericPage {
 
-            property bool item_checked
-            property string item_label
-            property string heading_title
-            property string page_desc
-
             globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
             heading: "Install Timeshift for system snapshots"
@@ -196,11 +191,6 @@ GenericPage {
     Component {
         id: codecs
         GenericPage {
-
-            property bool item_checked
-            property string item_label
-            property string heading_title
-            property string page_desc
 
             globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
